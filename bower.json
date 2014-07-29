@@ -1,0 +1,39 @@
+{
+  "name": "cardgamefrontend",
+  "main": [
+    "/dist/cardgamefrontend.min.js",
+    "/dist/cardgamefrontend.min.css"
+  ],
+  "version": "0.1.0",
+  "description": "TODO",
+  "authors": [
+    "TODO"
+  ],
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "klei.json",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components",
+    "src"
+  ],
+  "dependencies": {
+    "angular": "~1.2.14",
+    "angular-ui-router": "~0.2.10",
+    "angular-dragdrop-ganarajpr": "~1.0.3",
+    "angular-signalr-hub": "*",
+    "angular-state-files": "*",
+    "angular-ui-bootstrap": "~0.11.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.14"
+  },
+  "overrides": {
+    "angular-route-styles": {
+      "main": [
+        "route-styles.js"
+      ]
+    }
+  }
+}
