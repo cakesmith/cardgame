@@ -4,7 +4,13 @@
 
     $scope.$on('$stateChangeSuccess', function () {
       $scope.isLanding = $state.is('landing');
+      $scope.isLogin = $state.is('login');
+      $scope.isSignup = $state.is('signup');
+      $scope.isPanic = $state.is('panic');
+
     });
+
+
 
 
   }]);

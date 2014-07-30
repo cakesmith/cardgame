@@ -1,5 +1,7 @@
 // Variables
 $font-stack: "Roboto", sans-serif;
+$bpWidth: 500px;
+$bpHeight: 640px;
 
 // Mixins
 
@@ -12,9 +14,17 @@ $font-stack: "Roboto", sans-serif;
     height: 3.4em;
     color: white;
     font-weight: 400;
+    outline: none;
+
     font-size: 1em;
     letter-spacing: 0;
     background-color: black;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+
   }
 
 }
@@ -40,25 +50,23 @@ button {
   font: inherit;
 }
 
-
-
-
 .background {
-
 
   .buttons {
     @include blackButton();
   }
 
   .background-top {
-    @include transition(color .5s ease);
 
-    color:transparent;
+    @include transition(color .4s);
 
+    padding: 2em;
+
+    color: transparent;
     text-shadow: 0 0 15px #585858;
 
+    margin-top: 6em;
     letter-spacing: .1em;
-    top: 6em;
     width: 100%;
     height: 15em;
 
@@ -73,6 +81,23 @@ button {
       color: white;
     }
 
+    @mixin smaller() {
+      display: inline-block;
+      font-size: .75em;
+      padding: 0;
+      margin-top: 0;
+    }
+
+    @media (max-width: $bpWidth) {
+
+      @include smaller();
+
+    }
+
+    @media (max-height: $bpHeight) {
+      @include smaller();
+    }
+
   }
 
   .background-bottom {
@@ -85,8 +110,8 @@ button {
     vertical-align: middle;
     line-height: normal;
     margin: 0;
-    position: absolute;
-    z-index: -99;
+    position: fixed;
+    z-index: 99;
     bottom: 0;
     width: 100%;
   }
@@ -96,19 +121,52 @@ button {
 .landing {
 
   .buttons {
+    padding: 2em;
 
-    .signup {
+    margin-top: 7em;
+
+    .login-button {
+
+    }
+
+    .signup-button {
       margin-left: 1.75em;
     }
 
-    .panic {
+    .panic-button {
       float: right;
-      margin-right: .5em;
     }
+
+    @mixin smaller() {
+      margin: 0;
+      vertical-align: middle;
+      .panic-button {
+        float: none;
+      }
+      .signup-button {
+        margin: 10px;
+      }
+    }
+
+    @media (max-width: $bpWidth) {
+      @include smaller();
+    }
+
+    @media (max-height: $bpHeight) {
+      @include smaller();
+    }
+
   }
 }
 
 .login {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+}
+
+.signup {
 
 }
 

@@ -22,6 +22,18 @@
         parent: 'background'
       })
 
+      .state('signup', {
+        url: '/signup',
+        templateUrl: '/cardgame/states/auth/signup/signup.html',
+        parent: 'background'
+      })
+
+      .state('panic', {
+        url: '/panic',
+        templateUrl: '/cardgame/states/auth/panic/panic.html',
+        parent: 'background'
+      })
+
     ;
 
     $urlRouterProvider.otherwise('/');
