@@ -1,0 +1,116 @@
+// Variables
+$font-stack: "Roboto", sans-serif;
+
+// Mixins
+
+@mixin blackButton() {
+  display: block;
+  padding-top: 5%;
+
+  button {
+    width: 7em;
+    height: 3.4em;
+    color: white;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0;
+    background-color: black;
+  }
+
+}
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+
+body {
+  font: 20px/150% $font-stack;
+  color: white;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+
+
+
+.background {
+
+
+  .buttons {
+    @include blackButton();
+  }
+
+  .background-top {
+    @include transition(color .5s ease);
+
+    color:transparent;
+
+    text-shadow: 0 0 15px #585858;
+
+    letter-spacing: .1em;
+    top: 6em;
+    width: 100%;
+    height: 15em;
+
+    div {
+      h1 {
+        font-size: 6em;
+        line-height: .75em;
+      }
+    }
+
+    &.isLanding {
+      color: white;
+    }
+
+  }
+
+  .background-bottom {
+    font-size: .75em;
+    clear: both;
+    color: black;
+    background-color: white;
+    padding: 0;
+    text-align: right;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    position: absolute;
+    z-index: -99;
+    bottom: 0;
+    width: 100%;
+  }
+
+}
+
+.landing {
+
+  .buttons {
+
+    .signup {
+      margin-left: 1.75em;
+    }
+
+    .panic {
+      float: right;
+      margin-right: .5em;
+    }
+  }
+}
+
+.login {
+
+}
+
+
+

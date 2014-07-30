@@ -2,35 +2,37 @@
   'use strict';
 
   app.config(function($urlRouterProvider, $stateProvider) {
+
     $stateProvider
-      .state('landing', {
-        url: '/landing',
-        templateUrl: '/templates/landing/landing.html',
-        css: '/css/templates/landing/landing.css'
+
+      .state('background', {
+        templateUrl: '/cardgame/states/background.html',
+        controller: 'BgCtrl'
       })
 
-      .state('cards', {
-        url: '/cards',
-        templateUrl: '/modules/cards/cards.html',
-        css: '/css/modules/cards/cards.css'
+      .state('landing', {
+        url: '/',
+        templateUrl: '/cardgame/states/landing/landing.html',
+        parent: 'background'
+      })
+
+      .state('login', {
+        url: '/login',
+        templateUrl: '/cardgame/states/auth/login/login.html',
+        parent: 'background'
       })
 
     ;
 
-    $urlRouterProvider.otherwise('/landing');
+    $urlRouterProvider.otherwise('/');
 
   });
 
 
-}(angular.module('cardgamefrontend', [
-  'game.cards',
-  'game.chat',
-  'game.user',
-  'game.lobby',
-  'game.server',
+
+}(angular.module('cardgame', [
+  'app.game',
+  'ngAnimate',
   'ui.router',
-  'stateFiles',
-  'ngDragDrop',
-  'SignalR',
-  'cardgamefrontend-templates'
+  'cardgame-templates'
 ])));

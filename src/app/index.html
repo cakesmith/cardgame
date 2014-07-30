@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="cardgamefrontend">
+<html ng-app="cardgame">
 <head>
   <meta charset="utf-8"/>
   <title>Card Game</title>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 
   <!-- inject:vendor:css -->
@@ -11,13 +12,10 @@
 
 
 
-  <!--&lt;!&ndash; inject:css &ndash;&gt;-->
-  <!--<link rel="stylesheet" href="/css/app.css">-->
-  <!--<link rel="stylesheet" href="/css/modules/cards/cards.css">-->
-  <!--<link rel="stylesheet" href="/css/templates/landing/landing.css">-->
-  <!--&lt;!&ndash; endinject &ndash;&gt;-->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/styles/app.css">
+  <!-- endinject -->
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/app.css">
 
 
@@ -31,19 +29,13 @@
 <script src="/angular/angular.js"></script>
 <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="/angular-dragdrop-ganarajpr/draganddrop.js"></script>
-<script src="/jquery/dist/jquery.js"></script>
-<script src="/signalr/jquery.signalR.js"></script>
-<script src="/angular-state-files/state-files.js"></script>
-<script src="/angular-signalr-hub/signalr-hub.min.js"></script>
+<script src="/angular-animate/angular-animate.js"></script>
 <!-- endinject -->
 <!-- inject:js -->
-<script src="/cardgamefrontend-templates.js"></script>
-<script src="/modules/cards/cards.js"></script>
-<script src="/modules/chat/chat.js"></script>
-<script src="/modules/lobby/lobby.js"></script>
-<script src="/modules/server/server.js"></script>
-<script src="/modules/user/user.js"></script>
+<script src="/cardgame-templates.js"></script>
+<script src="/states/game/game.js"></script>
 <script src="/app.js"></script>
+<script src="/states/background.js"></script>
 <!-- endinject -->
 </body>
 

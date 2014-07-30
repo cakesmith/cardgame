@@ -19,7 +19,7 @@ module.exports = function ( karma ) {
       'bower_components/signalr/jquery.signalR.js',
       'bower_components/angular-signalr-hub/signalr-hub.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      '.tmp/cardgamefrontend-templates.js',
+      '.tmp/cardgamefrontend-states.js',
       'src/app/modules/cards/cards.js',
       'src/app/modules/chat/chat.js',
       'src/app/modules/lobby/lobby.js',
