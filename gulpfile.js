@@ -173,13 +173,13 @@ gulp.task('assets', function () {
  * Dist
  */
 
-gulp.task('dist', function() {
+gulp.task('clean', function(done) {
   rimraf('./.tmp', function() {
-    rimraf('./dist', function() {
-      gulp.start('build-dist');
-    })
-  })
+    rimraf('./dist', done);
+  });
 });
+
+gulp.task('dist', ['clean', 'build-dist']);
 
 
 gulp.task('build-dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
@@ -201,7 +201,11 @@ gulp.task('statics', g.serve({
 /**
  * Watch
  */
-gulp.task('serve', ['watch']);
+
+gulp.task('serve', ['clean'], function() {
+  gulp.start('watch');
+});
+
 gulp.task('watch', ['statics', 'default'], function () {
   isWatching = true;
   // Initiate livereload server:

@@ -1,7 +1,7 @@
 // Variables
 $font-stack: "Roboto", sans-serif;
-$bpWidth: 480px;
-$bp2Width: 445px;
+$bpWidth: 740px;
+$bp2Width: 455px;
 $bpHeight: 640px;
 $fgColor: #f0f0f0;
 $bgColor: #101010;
@@ -67,9 +67,9 @@ button {
 }
 
 
-@import "_landing";
-@import "_signup";
-@import "_login";
+@import "states/landing/landing";
+@import "states/auth/signup/_signup";
+@import "states/auth/login/_login";
 
 
 
