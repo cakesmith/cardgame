@@ -1,7 +1,17 @@
-<div class="login">
+<div class="login" ng-controller="LoginCtrl">
 
-  Login Page
+  <div class="username input-group input-group-lg">
+    <span class="input-group-addon"><fa name="gamepad"></fa></span>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
 
-  <a ui-sref="landing">landing</a>
+  <div class="password input-group input-group-lg">
+    <span class="input-group-addon"><fa name="unlock-alt"></fa></span>
+    <input type="password" class="form-control" placeholder="Password">
+  </div>
+
+  <div class="play">
+  <button class="btn btn-default">PLAY</button>
+  </div>
 
 </div>

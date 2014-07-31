@@ -1,13 +1,28 @@
-<div class="landing">
+<div class="landing" ng-controller="LandingCtrl">
+
+  <div class="landing-top" ng-class="{blur: blur}" ng-cloak>
+
+    <div><h1 class="logo">Popular</h1></div>
+    <div><h1 class="logo">Card</h1></div>
+    <div><h1 class="logo">Game.</h1></div>
+  </div>
+
   <div class="buttons">
-    <span class="login-button"><a ui-sref="login">
-      <button class="btn btn-default">Login</button>
-    </a></span>
-    <span class="signup-button"><a ui-sref="signup">
-      <button class="btn btn-default">Sign Up</button>
-    </a></span>
-    <span class="panic-button"><a ui-sref="panic">
-      <button class="btn btn-default">PANIC</button>
-    </a></span>
+    <span class="login-button">
+      <button class="btn btn-default" ng-class="{blur: blur}" ng-click="login()">Login</button>
+    </span>
+    <span class="signup-button">
+      <button class="btn btn-default" ng-class="{blur: blur}" ng-click="signup()" >Sign Up</button>
+    </span>
+    <span class="panic-button">
+      <button class="btn btn-default" ng-click="panic()" ng-class="{blur: blur}">PANIC</button>
+    </span>
+  </div>
+
+  <div class="landing-bottom">
+    <p>Popular Card Game is a (poorly made) clone of <a href="http://cardsagainsthumanity.com/">Cards Against Humanity</a>, which is released under the
+      <a
+          href="https://creativecommons.org/licenses/by-nc-sa/2.0/">Creative Commons BY-NC-SA 2.0 license</a>.</p>
+    <p>No unicorns were harmed during the making of this website.</p>
   </div>
 </div>

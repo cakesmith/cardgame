@@ -5,33 +5,9 @@
 
     $stateProvider
 
-      .state('background', {
-        templateUrl: '/cardgame/states/background.html',
-        controller: 'BgCtrl'
-      })
-
       .state('landing', {
         url: '/',
-        templateUrl: '/cardgame/states/landing/landing.html',
-        parent: 'background'
-      })
-
-      .state('login', {
-        url: '/login',
-        templateUrl: '/cardgame/states/auth/login/login.html',
-        parent: 'background'
-      })
-
-      .state('signup', {
-        url: '/signup',
-        templateUrl: '/cardgame/states/auth/signup/signup.html',
-        parent: 'background'
-      })
-
-      .state('panic', {
-        url: '/panic',
-        templateUrl: '/cardgame/states/auth/panic/panic.html',
-        parent: 'background'
+        templateUrl: '/cardgame/states/landing/landing.html'
       })
 
     ;
@@ -43,8 +19,12 @@
 
 
 }(angular.module('cardgame', [
+  'app.landing',
   'app.game',
+  'app.login',
+  'ui.bootstrap',
   'ngAnimate',
   'ui.router',
+  'picardy.fontawesome',
   'cardgame-templates'
 ])));

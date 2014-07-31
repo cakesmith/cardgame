@@ -1,28 +1,27 @@
 // Variables
 $font-stack: "Roboto", sans-serif;
-$bpWidth: 500px;
+$bpWidth: 480px;
+$bp2Width: 445px;
 $bpHeight: 640px;
+$fgColor: #f0f0f0;
+$bgColor: #101010;
 
 // Mixins
 
 @mixin blackButton() {
-  display: block;
-  padding-top: 5%;
+
 
   button {
-    width: 7em;
-    height: 3.4em;
-    color: white;
-    font-weight: 400;
+    color: $fgColor;
+    font-weight: 300;
     outline: none;
 
-    font-size: 1em;
-    letter-spacing: 0;
-    background-color: black;
+    font-size: 100%;
+    background-color: $bgColor;
 
     &:hover {
-      background-color: white;
-      color: black;
+      background-color: $fgColor;
+      color: $bgColor;
     }
 
   }
@@ -36,12 +35,29 @@ $bpHeight: 640px;
   transition: $value;
 }
 
-body {
-  font: 20px/150% $font-stack;
-  color: white;
-  background-color: black;
-  margin: 0;
+@mixin smaller() {
+
+  @media (max-width: $bpWidth) {
+    @content;
+  }
+
+  @media (max-height: $bpHeight) {
+    @content;
+  }
+
+}
+
+html, body {
+  min-height: 100%;
   padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 50px;
+  font: 20px/150% $font-stack;
+  color: $fgColor;
+  background-color: $bgColor;
 }
 
 input,
@@ -50,125 +66,10 @@ button {
   font: inherit;
 }
 
-.background {
 
-  .buttons {
-    @include blackButton();
-  }
-
-  .background-top {
-
-    @include transition(color .4s);
-
-    padding: 2em;
-
-    color: transparent;
-    text-shadow: 0 0 15px #585858;
-
-    margin-top: 6em;
-    letter-spacing: .1em;
-    width: 100%;
-    height: 15em;
-
-    div {
-      h1 {
-        font-size: 6em;
-        line-height: .75em;
-      }
-    }
-
-    &.isLanding {
-      color: white;
-    }
-
-    @mixin smaller() {
-      display: inline-block;
-      font-size: .75em;
-      padding: 0;
-      margin-top: 0;
-    }
-
-    @media (max-width: $bpWidth) {
-
-      @include smaller();
-
-    }
-
-    @media (max-height: $bpHeight) {
-      @include smaller();
-    }
-
-  }
-
-  .background-bottom {
-    font-size: .75em;
-    clear: both;
-    color: black;
-    background-color: white;
-    padding: 0;
-    text-align: right;
-    vertical-align: middle;
-    line-height: normal;
-    margin: 0;
-    position: fixed;
-    z-index: 99;
-    bottom: 0;
-    width: 100%;
-  }
-
-}
-
-.landing {
-
-  .buttons {
-    padding: 2em;
-
-    margin-top: 7em;
-
-    .login-button {
-
-    }
-
-    .signup-button {
-      margin-left: 1.75em;
-    }
-
-    .panic-button {
-      float: right;
-    }
-
-    @mixin smaller() {
-      margin: 0;
-      vertical-align: middle;
-      .panic-button {
-        float: none;
-      }
-      .signup-button {
-        margin: 10px;
-      }
-    }
-
-    @media (max-width: $bpWidth) {
-      @include smaller();
-    }
-
-    @media (max-height: $bpHeight) {
-      @include smaller();
-    }
-
-  }
-}
-
-.login {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-
-}
-
-.signup {
-
-}
+@import "_landing";
+@import "_signup";
+@import "_login";
 
 
 

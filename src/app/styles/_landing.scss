@@ -1,0 +1,86 @@
+.landing {
+
+  background-color: $bgColor;
+
+  .landing-top {
+    @include transition(color 0.7s ease);
+
+    padding: 2rem;
+    letter-spacing: .1rem;
+    text-shadow: 0;
+
+    &.blur {
+      text-shadow: 0 0 15px grey;
+      color: transparent;
+    }
+
+    .logo {
+      display: inline-block;
+      font-size: 16rem;
+      line-height: 12rem;
+
+      @include smaller {
+        font-size: 9rem;
+        line-height: 3rem;
+        padding: 1rem;
+      }
+      @media(max-width: $bp2Width) {
+        font-size: 6rem;
+        line-height: .1rem;
+      }
+    }
+
+  }
+
+  .buttons {
+    @include blackButton();
+
+
+    padding: 2rem;
+
+    button {
+      @include transition(color 0.7s ease);
+      width: 15rem;
+      height: 7rem;
+      margin-left: 8%;
+      margin-bottom: 2rem;
+
+      &.blur {
+        text-shadow: 0 0 5px white;
+        color: transparent;
+        border-color: transparent;
+        box-shadow: 0 0 3px white;
+      }
+    }
+
+    @include smaller() {
+      padding: 1rem;
+      margin-left: 0;
+      button {
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (max-width: $bp2Width) {
+      text-align: center;
+    }
+
+  }
+
+  .landing-bottom {
+
+    font-size: .75em;
+    clear: both;
+    color: black;
+    background-color: $fgColor;
+    padding: 0;
+    text-align: right;
+    vertical-align: middle;
+    line-height: 1.75rem;
+    z-index: 99;
+    bottom: 0;
+    width: 100%;
+  }
+
+}

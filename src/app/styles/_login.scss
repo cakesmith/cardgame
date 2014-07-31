@@ -1,0 +1,29 @@
+.login {
+  position: absolute;
+  margin-left: 27%;
+  margin-right: 25%;
+
+  .username {
+    margin-top: 50%;
+  }
+
+  .password {
+    margin-top: 10%;
+  }
+
+
+.play {
+    @include blackButton();
+
+  button {
+    width: 15rem;
+    height: 7rem;
+  }
+
+  text-align: center;
+
+    margin-top: 15%;
+
+}
+
+}
