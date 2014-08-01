@@ -1,0 +1,13 @@
+.panic {
+  text-align: center;
+  position: absolute;
+  color: $fgColor;
+
+.submit {
+  @include blackButton();
+  button {
+    width: 15rem;
+    height: 7rem;
+  }
+}
+}

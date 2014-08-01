@@ -3,7 +3,7 @@
   background-color: $bgColor;
 
   .landing-top {
-    @include transition(color 0.7s ease);
+    @include transition(all 0.7s ease);
 
     padding: 2rem;
     letter-spacing: .1rem;
@@ -34,11 +34,10 @@
   .buttons {
     @include blackButton();
 
-
     padding: 2rem;
 
     button {
-      @include transition(color 0.7s ease);
+      @include transition(all 0.7s ease);
       width: 15rem;
       height: 7rem;
       margin-left: 8%;
@@ -70,6 +69,7 @@
 
   .landing-bottom {
 
+    margin-top: 14rem;
     font-size: .75em;
     clear: both;
     color: black;

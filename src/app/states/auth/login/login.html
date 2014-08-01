@@ -1,8 +1,16 @@
 <div class="login" ng-controller="LoginCtrl">
+  <br/><br/><br/><br/><br/>
+  
+<div class="header"><h2>Let's do this thing.</h2>
+</div>
 
-  <div class="username input-group input-group-lg">
-    <span class="input-group-addon"><fa name="gamepad"></fa></span>
-    <input type="text" class="form-control" placeholder="Username">
+  <app-loader ng-show="loading"></app-loader>
+  <alert ng-repeat="(key, alert) in alerts track by key" type="{{alert.type}}" close="closeAlert(key)">{{alert.msg}}</alert>
+
+
+  <div class="email input-group input-group-lg">
+    <span class="input-group-addon">@</span>
+    <input type="text" class="form-control" placeholder="Email Address">
   </div>
 
   <div class="password input-group input-group-lg">

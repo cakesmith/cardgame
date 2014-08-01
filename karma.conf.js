@@ -33,8 +33,11 @@ module.exports = function ( karma ) {
       'src/app/modules/user/user_test.js'
     ],
 
-    frameworks: [ 'mocha', 'chai', 'jasmine' ],
-    plugins: [ 'karma-mocha', 'karma-chai', 'karma-jasmine', 'karma-phantomjs-launcher' ],
+    frameworks: ['jasmine'],
+    plugins:['karma-jasmine', 'karma-phantomjs-launcher'],
+
+//    frameworks: [ 'mocha', 'chai', 'jasmine' ],
+//    plugins: [ 'karma-mocha', 'karma-chai', 'karma-jasmine', 'karma-phantomjs-launcher' ],
 
     /**
      * How to report, by default.

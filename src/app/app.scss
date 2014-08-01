@@ -1,17 +1,54 @@
 // Variables
 $font-stack: "Roboto", sans-serif;
+
 $bpWidth: 740px;
-$bp2Width: 455px;
 $bpHeight: 640px;
+
+$bp2Width: 455px;
+
 $fgColor: #f0f0f0;
 $bgColor: #101010;
 
 // Mixins
+@mixin fadeInOut($time, $ease) {
+
+  &.ng-enter,
+  &.ng-leave,
+  &.ng-move {
+    @include transition(all $time $ease);
+  }
+
+  &.ng-enter {
+    opacity:0;
+  }
+
+  &.ng-enter.ng-enter-active {
+    opacity:1;
+  }
+
+  &.ng-leave {
+    opacity:1;
+  }
+  &.ng-leave.ng-leave-active {
+    opacity:0;
+  }
+
+  &.ng-move {
+    opacity:0.5;
+  }
+
+  &.ng-move.ng-move-active {
+    opacity:1;
+  }
+}
 
 @mixin blackButton() {
 
 
+
   button {
+    @include transition(background-color 0.4s ease);
+
     color: $fgColor;
     font-weight: 300;
     outline: none;
@@ -47,6 +84,12 @@ $bgColor: #101010;
 
 }
 
+@mixin smallest() {
+  @media (max-width: $bp2Width) {
+    @content;
+  }
+}
+
 html, body {
   min-height: 100%;
   padding: 0;
@@ -70,6 +113,9 @@ button {
 @import "states/landing/landing";
 @import "states/auth/signup/_signup";
 @import "states/auth/login/_login";
+@import "states/auth/panic/_panic";
+@import "states/lobby/lobby";
+@import "states/game/game";
 
 
 

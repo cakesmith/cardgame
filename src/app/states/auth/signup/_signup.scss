@@ -1,3 +1,101 @@
 .signup {
+  position: absolute;
+  text-align: center;
+  width: 200%;
+  right: -50%;
+
+  .header {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+    top: 2rem;
+    text-align: center;
+    position: relative;
+    display: block;
+
+    app-loader {
+      display: inline-block;
+      position: relative;
+      width: 10rem;
+      height: 10rem;
+      text-align: center;
+
+      top: 2rem;
+
+      @include smallest() {
+        display: block;
+        top: 0;
+        margin-left: auto;
+        margin-right: auto;
+
+      }
+    }
+  }
+
+  .alert {
+
+    @include fadeInOut(.7s, ease);
+
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+
+    font-size: 1.75rem;
+
+  }
+
+
+
+  form {
+
+    @include transition(all .5s ease);
+
+    display: inline-block;
+    width: 45%;
+
+    top: 25rem;
+
+    .email {
+      margin-top: 10%;
+      .form-control {
+        @include smallest() {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .username {
+      margin-top: 10%;
+      .form-control {
+        @include smallest() {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .micro {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: -2.5rem;
+    }
+
+    .password {
+      margin-top: 10%;
+      .form-control {
+        @include smallest() {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+  .signup-btn {
+    @include blackButton();
+    text-align: center;
+    margin-top: 5rem;
+    button {
+      width: 15rem;
+      height: 7rem;
+    }
+  }
 
 }

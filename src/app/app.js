@@ -16,15 +16,18 @@
 
   });
 
-
+  app.value('FBURL', 'https://against.firebaseio.com');
 
 }(angular.module('cardgame', [
   'app.landing',
+  'app.auth',
+  'app.lobby',
   'app.game',
-  'app.login',
+  'app.services',
+  'firebase',
   'ui.bootstrap',
-  'ngAnimate',
   'ui.router',
+  'ngAnimate',
   'picardy.fontawesome',
   'cardgame-templates'
 ])));

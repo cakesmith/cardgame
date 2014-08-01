@@ -2,28 +2,38 @@
   position: absolute;
   margin-left: 27%;
   margin-right: 25%;
+  .header {
+    text-align: center;
+  }
 
-  .username {
-    margin-top: 50%;
+  .email {
+    margin-top: 30%;
+    .form-control {
+      @include smallest() {
+        font-size: 1.3rem;
+      }
+    }
   }
 
   .password {
     margin-top: 10%;
+    .form-control {
+      @include smallest() {
+        font-size: 1.3rem;
+      }
+    }
   }
 
-
-.play {
+  .play {
     @include blackButton();
-
-  button {
-    width: 15rem;
-    height: 7rem;
-  }
-
-  text-align: center;
-
+    text-align: center;
     margin-top: 15%;
 
-}
+    button {
+      width: 15rem;
+      height: 7rem;
+    }
+
+  }
 
 }
