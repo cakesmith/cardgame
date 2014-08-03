@@ -1,6 +1,6 @@
-(function (alertSvc) {
+(function (alerts) {
 
-  alertSvc.factory('alertService', function () {
+  alerts.factory('alertService', function ($rootScope) {
 
     var service = {
 
@@ -31,12 +31,17 @@
         alert.id = service.length();
 
         service.alerts[timestamp] = alert;
+
+        $rootScope.$broadcast('alertAdded', timestamp);
+
         return timestamp;
       },
 
-      close: function (key) {
+      delete: function (key) {
         var ret = service.alerts[key];
         delete service.alerts[key];
+
+        $rootScope.$broadcast('alertDeleted', ret);
         return ret;
       },
 
@@ -53,7 +58,7 @@
           });
 
           var max = Math.max.apply(null, map);
-          return service.close(ids[max]);
+          return service.delete(ids[max]);
 
         }
       },
@@ -68,24 +73,28 @@
 
   });
 
-  alertSvc.controller('alertCtrl', ['$scope', 'alertService', function ($scope, alertService) {
+  alerts.controller('alertCtrl', ['$scope', 'alertService', function ($scope, alertService) {
 
     $scope.alerts = alertService.alerts;
 
-    $scope.$watchCollection('alerts', function () {
+    $scope.$on('alertAdded', function (event, alert) {
       $scope.alerts = alertService.alerts;
     });
 
+    $scope.$on('alertDeleted', function(event, alert) {
+      $scope.alerts = alertService.alerts;
+    })
+
 
   }]);
 
-  alertSvc.directive('nlAlert', ['alertCtrl', function (alertCtrl) {
+  alerts.directive('nlAlert', function() {
 
     return {
       restrict  : 'E',
-      template  : '<alert ng-repeat="(key, alert) in alerts track by key" type="{{alert.type}}" close="close(key)">{{alert.msg}}</alert>',
-      controller: alertCtrl
+      template  : '<alert ng-repeat="(key, alert) in alerts track by key" type="{{alert.type}}" close="delete(key)">{{alert.msg}}</alert>',
+      controller: 'alertCtrl'
     };
-  }]);
+  });
 
 }(angular.module('app.alerts', [])));

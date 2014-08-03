@@ -3,6 +3,8 @@
 
   app.config(function($urlRouterProvider, $stateProvider) {
 
+// TODO: make states actual states with urls
+
     $stateProvider
 
       .state('landing', {

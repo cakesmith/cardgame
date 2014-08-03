@@ -1,10 +1,11 @@
 <div class="signup" ng-controller="SignupCtrl">
 
+<!-- TODO: fix responsiveness of form fields for smaller screens -->
+
 <div class="header">  <h2>THE SIGNING UP PART</h2>
   <app-loader ng-show="loading"></app-loader>
-  <alert ng-repeat="(key, alert) in alerts track by key" type="{{alert.type}}" close="closeAlert(key)">{{alert.msg}}</alert>
+  <nl-alert></nl-alert>
 </div>
-
 
   <form ng-submit="signup()">
   <div class="email input-group input-group-lg">
@@ -23,11 +24,14 @@
       <span class="input-group-addon"><fa name="unlock-alt"></fa></span>
       <input type="password" ng-model="password" class="form-control" placeholder="Password">
     </div>
+  </form>
+
+  <!-- TODO: move signup button outside of form so that clicking anywhere outside of form closes modal -->
+  <!-- Even though it's located outside of the form, it's still not right yet -->
 
   <div class="signup-btn">
-    <button class="btn btn-default">Sign Me Up!</button>
+    <button class="btn btn-default" ng-click="signup()">Sign Me Up!</button>
   </div>
-  </form>
 
 
 </div>

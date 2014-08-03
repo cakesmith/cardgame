@@ -110,12 +110,12 @@ button {
 }
 
 
-@import "states/landing/landing";
-@import "states/auth/signup/_signup";
-@import "states/auth/login/_login";
-@import "states/auth/panic/_panic";
-@import "states/lobby/lobby";
-@import "states/game/game";
+@import "landing";
+@import "signup";
+@import "login";
+@import "panic";
+@import "lobby";
+@import "game";
 
 
 

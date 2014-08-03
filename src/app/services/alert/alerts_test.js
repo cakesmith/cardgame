@@ -72,7 +72,7 @@ describe('alerts spec test', function () {
 
     }));
 
-    it('should close alerts by unique id', inject(function () {
+    it('should delete alerts by unique id', inject(function () {
 
       var id = [];
 
@@ -83,7 +83,7 @@ describe('alerts spec test', function () {
         expect(alerts.length()).toBe(key + 1);
       });
 
-      expect(alerts.close(id[1])).toEqual(alertObj[1]);
+      expect(alerts.delete(id[1])).toEqual(alertObj[1]);
 
       expect(alerts.length()).toBe(2);
 
@@ -91,8 +91,8 @@ describe('alerts spec test', function () {
 
       expect(alerts.length()).toBe(1);
 
-      expect(alerts.close(id[1])).toBeUndefined();
-      expect(alerts.close(id[0])).toEqual(alertObj[0]);
+      expect(alerts.delete(id[1])).toBeUndefined();
+      expect(alerts.delete(id[0])).toEqual(alertObj[0]);
 
       expect(alerts.length()).toBe(0);
 

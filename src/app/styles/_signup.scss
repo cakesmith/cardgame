@@ -1,8 +1,11 @@
 .signup {
+  width: 50rem;
+  height: 50rem;
   position: absolute;
-  text-align: center;
-  width: 200%;
-  right: -50%;
+  left: 50%;
+  top: 50%;
+  margin-left: -25rem;
+ margin-top: -25px;
 
   .header {
     width: 50%;
@@ -51,9 +54,8 @@
     @include transition(all .5s ease);
 
     display: inline-block;
-    width: 45%;
-
     top: 25rem;
+    width: 100%;
 
     .email {
       margin-top: 10%;

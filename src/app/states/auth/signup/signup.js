@@ -1,34 +1,20 @@
 (function (signup) {
 
-  signup.controller('SignupCtrl', ['$scope', '$timeout', '$firebaseSimpleLogin', 'FBURL', function ($scope, $timeout, $firebaseSimpleLogin, FBURL) {
+  signup.controller('SignupCtrl', ['$scope', '$timeout', '$firebaseSimpleLogin', 'errorService', 'FBURL', function ($scope, $timeout, $firebaseSimpleLogin, errorService, FBURL) {
 
     var dataRef = new Firebase(FBURL);
     var loginObj = $firebaseSimpleLogin(dataRef);
 
 
     $scope.loading = false;
-    $scope.alerts = {};
-
-    $scope.$watchCollection('alerts', function (newValue) {
-      $scope.numAlerts = Object.keys(newValue).length;
-    });
 
 
-    $scope.addAlert = function (alert) {
-      var timestamp = new Date().getUTCMilliseconds();
-      $scope.alerts[timestamp] = alert;
-      return timestamp;
 
-    };
-    $scope.closeAlert = function (key) {
-      delete $scope.alerts[key];
-    };
-
-    // TODO: refactor out authentication into a service
+ // TODO: refactor out authentication into a service
 
     $scope.signup = function () {
 
-      //TODO: verify emails
+ //TODO: verify emails
       $scope.loading = true;
 
       function login(email, password) {
@@ -36,15 +22,16 @@
           email   : email,
           password: password
         }).then(function (user) {
+  // TODO: change console.log to $log
           console.log(user.email + ' [ ' + user.id + ' ] logged in');
-          //TODO: here's the login point
+  //TODO: here's the login point
         }, function (loginError) {
           var data = {
             email   : email,
             password: password,
             type    : 'login'
           };
-          parseError(loginError, data);
+          errorService.parseError(loginError, data, 4000);
         });
       }
 
@@ -56,13 +43,13 @@
 
           login($scope.email, $scope.password);
 
-        }, function (createError) {
+        }, function (accountCreationError) {
           var data = {
             email   : $scope.email,
             password: $scope.password,
             type: 'create'
           };
-          parseError(createError, data);
+          errorService.parseError(accountCreationError, data, 4000);
         })
 
         .finally(function() {
